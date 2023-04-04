@@ -7,13 +7,13 @@ The default layer includes tapping mod keys on the home row, layers 1 and 2 each
 ```
 Default layer: Split QWERTY
 ,-----------------------------------------------------------------------------------.
-|   Q  |   W  |   E  |   R  |   T  |      |      |   Y  |   U  |   I  |   O  |   P  |
+|   Q  |   W  |   E  |   R  |   T  | TGL3 |      |   Y  |   U  |   I  |   O  |   P  |
 |------+------+------+------+------+------+------+------+------+------+------+------|
 |   A  | S/Ctl| D/GUI|F/Shft|   G  |      |      |   H  |J/Shft| K/GUI| L/Ctl|   ;  |
 |------+------+------+------+------+------+------+------+------+------+------+------|
 |   Z  |   X  |   C  |   V  |   B  |      |      |   N  |   M  |   ,  |   .  |   /  |
 |------+------+------+------+------+------+------+------+------+------+------+------|
-|      |      | GUI  |Shift |Bsp/L1| Opt  | Tab  |Spc/L2|'/Ctl |      |      |      |
+| PGUP | PGDN | GUI  |Shift |Bsp/L1| Opt  | Tab  |Spc/L2|'/Ctl |      |      |      |
 `-----------------------------------------------------------------------------------'
 
 Layer 1: Numbers, Brackets and Symbols
@@ -37,5 +37,31 @@ Layer 2: Arrows & Extras
 |------+------+------+------+------+------+------+------+------+------+------+------|
 |      |      |      |Shift | Bsp  |<-Ctl |      |######|      |      |      |      |
 `-----------------------------------------------------------------------------------'
+
+Layer 3: DoS layout
+,-----------------------------------------------------------------------------------.
+|  Esc |   M  |   W  |   I  |      | TGL3 |      |      |      |      |      |      |
+|------+------+------+------+------+------+------+------+------+------+------+------|
+|  F1  |   A  |   S  |   D  |   L  |      |      |      |      |      |      |      |
+|------+------+------+------+------+------+------+------+------+------+------+------|
+|   1  |   2  |   3  |   4  |   5  |      |      |      |      |      |      |      |
+|------+------+------+------+------+------+------+------+------+------+------+------|
+|   6  |   7  |   8  |   9  |   0  |      |      |      |      |      |      |      |
+`-----------------------------------------------------------------------------------'
 ```
 
+Build steps for a rev6 drop planck keyboard (adjust accordingly for other planck revisions)
+
+```
+$ <git clone qmk firmware>
+
+<follow the QMK environment setup steps found in the QMK docs>
+
+$ <git clone this repo>
+$ cd qmk_firmware
+$ mkdir layouts/community/planck_mit/fab
+$ cp ../qmk-config/* layouts/community/planck_mit/fab
+$ qmk compile -kb planck/rev6_drop -km fab
+
+<flash planck_rev6_drop_fab.bin on the keyboard with QMK Toolbox>
+```
